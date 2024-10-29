@@ -20,9 +20,9 @@ Groups = {'A00':['Toan','Li','Hoa']
         ,'C00':['Van','Su','Dia']
         ,'D01':['Van','Toan','Ngoai_ngu','N1']}#
 
-@st.cache
+@st.cache_data
 def load_data(year):
-    path_file='diemthi'+str(year)+'.csv'
+    path_file = './data/diemthi' + str(year) + '.csv'
     temp = pd.read_csv(path_file)
     df = pd.DataFrame(temp)
     df.drop(df.columns[[0]], axis=1, inplace=True)
@@ -38,7 +38,7 @@ df = load_data(selected_year)
 
 st.markdown("# Our Data Set")
 
-# @st.cache
+# @st.cache_data
 def visualize_spectrum(subject, df=df):
     plt.figure(figsize=(25,12))
     plt.title(f"Spectrum of {subject}")
@@ -54,7 +54,7 @@ def visualize_spectrum(subject, df=df):
 
     return plt
 
-# @st.cache
+# @st.cache_data
 def get_df_group(groupName):
     subjects = Groups[groupName][:3]
     language = Groups[groupName][-1] #

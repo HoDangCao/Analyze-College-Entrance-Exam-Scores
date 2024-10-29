@@ -27,16 +27,16 @@ st.markdown( """
 
 
 # Function
-@st.cache
+@st.cache_data
 def load_data(year):
-    path_file='diemthi'+str(year)+'.csv'
+    path_file = './data/diemthi' + str(year) + '.csv'
     temp = pd.read_csv(path_file)
     df = pd.DataFrame(temp)
     df.drop(df.columns[[0]], axis=1, inplace=True)
     return df.round(decimals=2)
 
 
-@st.cache
+@st.cache_data
 def getDataByGroup(dataFrame,group,listGroup):
     if group == 'D01':
         label = predictGroup[group][-1]
@@ -51,7 +51,7 @@ def getDataByGroup(dataFrame,group,listGroup):
     return data
 
 
-@st.cache
+@st.cache_data
 def prepareDataForModel(dataFrame,subjectWantToPredict):
     dataField = dataFrame.drop([subjectWantToPredict],axis = 1)
     resultField = dataFrame[[subjectWantToPredict]]
@@ -63,7 +63,7 @@ def prepareDataForModel(dataFrame,subjectWantToPredict):
     return dataField, resultField
 
 
-@st.cache
+@st.cache_data
 def buildLinearMultiRegressionModel(dataField,resultField):
     X = np.array(np.copy(dataField))
     y = np.array(np.copy(resultField))
@@ -77,7 +77,7 @@ def buildLinearMultiRegressionModel(dataField,resultField):
     return y_test, y_preds, scoreOnTrain, RMSE
     
 
-@st.cache
+@st.cache_data
 def evaluationModel(scoreOnTrain,Rmse,subjectWantToPredict):
     evaluationModel = pd.DataFrame([subjectWantToPredict,scoreOnTrain, Rmse], columns = ['Result'], 
     index=['Subject want to predict', 'Evaluate the model on training set', 
@@ -85,7 +85,7 @@ def evaluationModel(scoreOnTrain,Rmse,subjectWantToPredict):
     return evaluationModel
 
 
-# @st.cache
+# @st.cache_data
 def visualizationDataLine(y,yPreds,subjectWantToPredict):
     plt.figure(figsize=(7,5))
     plt.plot(y, y, color = 'red',label = 'Real data' )
@@ -99,7 +99,7 @@ def visualizationDataLine(y,yPreds,subjectWantToPredict):
     
 
 
-# @st.cache
+# @st.cache_data
 def visualizationDataHis(y,yPreds,subjectWantToPredict):
     plt.figure(figsize=(10,10))
     plt.figure(figsize=(7,5))

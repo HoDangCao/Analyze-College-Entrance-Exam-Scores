@@ -16,9 +16,9 @@ st.markdown( """
     """
 )
 
-# @st.cache
+# @st.cache_data
 def load_data(year):
-    path_file='diemthi'+str(year)+'.csv'
+    path_file = './data/diemthi' + str(year) + '.csv'
     temp = pd.read_csv(path_file)
     df = pd.DataFrame(temp)
     df.drop(df.columns[[0]], axis=1, inplace=True)

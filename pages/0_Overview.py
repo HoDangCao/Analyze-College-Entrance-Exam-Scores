@@ -19,7 +19,7 @@ st.markdown( """
 st.sidebar.header('User Input Features')
 selected_year = st.sidebar.selectbox('Year',list(reversed(range(2019,2021))))
 #repare data
-path_file='diemthi'+str(selected_year)+'.csv'
+path_file = './data/diemthi' + str(selected_year) + '.csv'
 temp = pd.read_csv(path_file)
 df = pd.DataFrame(temp).round(decimals=2)
 df.drop(df.columns[[0]], axis=1, inplace=True)
