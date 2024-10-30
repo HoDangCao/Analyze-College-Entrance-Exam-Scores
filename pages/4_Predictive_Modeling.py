@@ -7,7 +7,6 @@ import pandas as pd
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from bokeh.plotting import figure
 
 st.set_page_config(
     page_title = "Predictive Modeling"
@@ -93,6 +92,7 @@ def visualizationDataLine(y,yPreds,subjectWantToPredict):
     plt.title(f'Predict {subjectWantToPredict} score.')
     plt.xlabel('Score')
     plt.ylabel('Score')
+    plt.grid()
     plt.legend()
 
     return plt
@@ -108,6 +108,7 @@ def visualizationDataHis(y,yPreds,subjectWantToPredict):
     plt.title(f'Predict {subjectWantToPredict} score.')
     plt.xlabel('Score')
     plt.ylabel('Total')
+    plt.grid(axis='y')
     return plt
 
 #
@@ -139,7 +140,7 @@ st.dataframe(dataForModel)
 subjectWantToPredict = selected_subject
 dataField, resultField = prepareDataForModel(dataForModel,subjectWantToPredict)
 y_test, y_preds, scoreOnTrain, RMSE = buildLinearMultiRegressionModel(dataField,resultField)
-eva = evaluationModel(scoreOnTrain, RMSE,subjectWantToPredict)
+eva = evaluationModel(scoreOnTrain, RMSE, subjectWantToPredict)
 eva = eva.astype(str)
 st.markdown(f"##### Evaluate multi linear regression model to predict {subjectWantToPredict} score by using another subjects in group {groupWantToPredict}.")
 st.dataframe(eva)

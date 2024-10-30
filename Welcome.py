@@ -23,10 +23,9 @@ st.markdown(
     ---
     ### Members
     - The Website's designed by 4 people:
-        - Trần Quốc Bảo - 20127449
-        - Hồ Đăng Cao - 20127452
-        - Đỗ Đức Duy - 20127476
-        - Ngô Hữu Nhật Thanh - 20127327
-
+        - [Trần Quốc Bảo](https://github.com/TQ-Ba0)
+        - [Hồ Đăng Cao](https://github.com/HoDangCao)
+        - [Đỗ Đức Duy](https://github.com/dduyds)
+        - [Ngô Hữu Nhật Thanh](https://github.com/Thanh131103)
 """
 )

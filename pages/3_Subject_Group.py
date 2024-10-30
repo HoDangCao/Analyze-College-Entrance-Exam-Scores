@@ -51,6 +51,7 @@ def visualize_spectrum(subject, df=df):
 
     plt.xlabel('scores')
     plt.ylabel('number of students')
+    plt.grid(axis='y')
 
     return plt
 

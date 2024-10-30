@@ -58,6 +58,8 @@ def visualize_spectrum(subject):
     plt.xlabel('scores')
     plt.ylabel('number of students')
 
+    plt.grid(axis='y')
+    
     #pie chart for %
     t = np.histogram(df[subject],bins=np.round(np.arange(pointFrom, pointTo+0.1, 0.5),1))
     res = dict(map(lambda i,j : (i,j), t[1],t[0]))
