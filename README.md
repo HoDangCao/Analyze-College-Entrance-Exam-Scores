@@ -15,10 +15,7 @@
 
 ## 2. **What our website looks like**
 
-<video width="600" controls>
-  <source src="./demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo Video](./demo.gif)
 
 ## 3. **What have been done in this project?**
 - Data Explorations.
